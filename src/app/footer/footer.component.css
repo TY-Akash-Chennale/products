@@ -1,0 +1,8 @@
+#foot{
+  position: fixed;
+  height: 70px;
+  padding: 20px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

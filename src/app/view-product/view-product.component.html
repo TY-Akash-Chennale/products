@@ -1,0 +1,32 @@
+<div class="container mt-2">
+  <nav class="nav nav-tabs nav-stacked">
+    <a class="nav-link" routerLinkActive='active' routerLink="electronics">Electronics</a>
+    <a class="nav-link" routerLinkActive='active' routerLink="fashion">Fashion</a>
+    <a class="nav-link" routerLinkActive='active' routerLink="groceries">Groceries</a>
+    <div class="form-inline my-2 my-lg-0 ml-5">
+      <input class="form-control mr-sm-2" #search type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="onSearch(search.value)">Search</button>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+<div class="container-fluid">
+  <div div class="row">
+    <ng-container *ngFor="let pro of product; index as i">
+      <div class="card col-md-2 ml-1 mt-2" *ngIf="(pro.category).toLowerCase() === val.toLowerCase()">
+        <div class="card-head text-center pt-2 pb-2 h4">
+          {{pro.name}}
+        </div>
+        <img class="img-fluid" [src]="pro.picUrl" alt="..">
+        <div class="card-body">
+          <p>Price : {{pro.price}}</p>
+          <p>Quantity : {{pro.quantity}}</p>
+          <p>Description : {{pro.description}}</p>
+        </div>
+        <div class="card-footer">
+          <button class=" btn btn-outline-danger float-right" (click)="delete(i)">DELETE</button>
+        </div>
+      </div>
+      </ng-container>
+  </div>
+</div>
